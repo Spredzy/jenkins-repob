@@ -1,0 +1,6 @@
+---
+- name: Display env
+  command: env
+
+- name: Display Red Hat release
+  command: cat /etc/redhat-release
