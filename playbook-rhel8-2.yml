@@ -6,3 +6,8 @@
 
     - name: Display Red Hat release
       command: cat /etc/redhat-release
+
+    - name: Install vim
+      become: True
+      package:
+        name: vim-minimal
