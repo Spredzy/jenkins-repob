@@ -3,3 +3,9 @@
   tasks:
     - name: echo lala
       command: echo "lala"
+
+    - setup:
+      register: lala
+
+    - debug:
+        msg: '{{ lala.stdout }}'
