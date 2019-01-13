@@ -8,4 +8,4 @@
       register: lala
 
     - debug:
-        msg: '{{ lala.stdout }}'
+        msg: '{{ ansible_all_ipv6_addresses }}'
