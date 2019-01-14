@@ -1,5 +1,5 @@
 ---
-- hosts: 2001:19f0:6801:1ea9:5400:01ff:fed7:b84d
+- hosts: toto
   tasks:
     - name: echo lala
       command: echo "lala"
