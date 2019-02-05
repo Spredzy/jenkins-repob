@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+    - command: date
+
+- hosts: localhost
+  tasks:
+    - debug:
+        msg: '{{ hostvars[inventory_hostname] }}'
