@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: fail
+      fail:
+        msg: 'because fail'
