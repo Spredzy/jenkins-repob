@@ -2,6 +2,7 @@
 - hosts: localhost
   tasks:
     - name: test
+      become: yes
       command: id
 
     - name: echo lala
