@@ -1,5 +1,8 @@
 ---
 - hosts: localhost
   tasks:
+    - name: test
+      command: id
+
     - name: echo lala
       command: echo "lala"
