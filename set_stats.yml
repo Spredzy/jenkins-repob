@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  order: reverse_inventory
   tasks:
     - command: date
       register: date
