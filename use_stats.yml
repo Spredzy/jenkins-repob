@@ -3,3 +3,7 @@
   tasks:
     - debug:
         msg: '{{ test_date }}'
+
+    - debug:
+        msg: 'SUCCESS'
+      when: test_date | bool
