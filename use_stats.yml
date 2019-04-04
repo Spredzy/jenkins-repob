@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  gather_facts: false
   order: reverse_inventory
   tasks:
     - debug:
