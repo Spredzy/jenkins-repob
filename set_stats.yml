@@ -11,4 +11,3 @@
         data:
           test_ok: ok
           test_date: '{{ date.changed }}'
-        per_host: yes
