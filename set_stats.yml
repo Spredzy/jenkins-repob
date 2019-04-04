@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks:
+    - command: date
+      register: date
+
+    - debug:
+        msg: '{{ date }}'
+
+    - set_stats:
+        data:
+          test_ok: ok
+          test_date: '{{ date.changed }}'
+        per_host: yes
