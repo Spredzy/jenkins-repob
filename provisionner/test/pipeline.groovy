@@ -1,6 +1,6 @@
 pipeline {
 
-    agent none
+    agent { label 'jenkins-jnlp-agent' }
 
     parameters {
         string(
