@@ -20,6 +20,7 @@ pipeline {
         stage ('Pipeline Information') {
             steps {
                 echo "Compose ID: ${params.RHEL_COMPOSE_ID}"
+                echo "${env}"
             }
         }
 
