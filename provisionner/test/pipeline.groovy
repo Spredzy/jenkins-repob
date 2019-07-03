@@ -21,6 +21,7 @@ pipeline {
             steps {
                 echo "Compose ID: ${params.RHEL_COMPOSE_ID}"
                 sh "env"
+                sh "./test.sh"
             }
         }
 
