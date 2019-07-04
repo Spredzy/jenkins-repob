@@ -3,7 +3,9 @@ pipeline {
 
     stages {
         stage("test") {
-          sh "env"
+          steps {
+            sh "env"
+          }
         }
     }
 }
