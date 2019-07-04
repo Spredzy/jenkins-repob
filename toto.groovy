@@ -65,9 +65,9 @@ pipelineJob("cvp-sample-trigger-external-image-tests") {
       scm {
         git {
           remote {
-            url('${GIT_REPO}')
+            url("${GIT_REPO}")
           }
-          branch('${GIT_BRANCH}')
+          branch("${GIT_BRANCH}")
         }
       }
       scriptPath("tata.groovy")
