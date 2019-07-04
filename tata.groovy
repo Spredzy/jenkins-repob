@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent { label 'jenkins-jnlp-agent' }
 
     stages {
         stage("test") {
