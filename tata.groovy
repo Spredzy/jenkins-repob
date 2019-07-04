@@ -2,7 +2,11 @@ pipeline {
     agent none
 
     parameters {
-      stringParam("CI_MESSAGE", "", "Contents of the CI message received from UMB.")
+      string(
+        name: "CI_MESSAGE",
+        defaultValue: "",
+        description: "Contents of the CI message received from UMB."
+      )
     }
 
     stages {
