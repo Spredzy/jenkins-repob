@@ -1,10 +1,14 @@
 pipeline {
-    agent { label 'jenkins-jnlp-agent' }
+    agent none
+
+    parameters {
+      stringParam("CI_MESSAGE", "", "Contents of the CI message received from UMB.")
+    }
 
     stages {
         stage("test") {
           steps {
-            sh "env"
+            echo "${params.CI_MESSAGE}"
           }
         }
     }
