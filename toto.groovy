@@ -27,8 +27,7 @@ pipelineJob("cvp-sample-trigger-external-image-tests") {
               // The topic name needs to be unique for every job listening to the UMB (note the UUID in the middle).
               // When reusing (copy-pasting) this configuration, make sure to change the UUID to a different one, or use
               // different unique string
-              def uuid = "4ba46000-9000-1100-b800-54ee754ea000"
-              topic("Consumer.rh-jenkins-ci-plugin.${uuid}.VirtualTopic.eng.brew.task.open")
+              topic("Consumer.rh-jenkins-ci-plugin.doingsomething.VirtualTopic.eng.brew.task.open")
             }
             //
             // Message Checks
