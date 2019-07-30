@@ -3,9 +3,10 @@ pipeline {
     agent none
 
     stages {
-        stage('Hello World') {
+        stage('Scenario') {
             steps {
-                echo 'Hello World'
+                jobs = load('build-scenarios.groovy')
+                parallel jobs
             }
         }
     }
