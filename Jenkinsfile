@@ -1,12 +1,18 @@
 pipeline {
 
-    agent none
+    agent { label 'unit-test-runner' }
 
     stages {
-        stage('Scenario') {
+        stage('prep') {
             steps {
-                jobs = load('build-scenarios.groovy')
-                parallel jobs
+                sh 'env'
+                script {
+                   if (env.BRANCH_NAME != null) {
+                       echo 'Gating'
+                   } else {
+                       echo 'Nightly'
+                   }
+                }
             }
         }
     }
