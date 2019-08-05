@@ -1,0 +1,9 @@
+- hosts: all
+  gather_facts: false
+  pre_tasks:
+    - name: Gather minimum facts
+      setup:
+        gather_subset: min
+  tasks:
+    - name: Ping server
+      ping:
