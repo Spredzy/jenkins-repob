@@ -1,16 +1,25 @@
 ---
 - hosts: releasevm
   tasks:
-    - ping:
-    - command: id
+    - name: Create temp directory to clone repo into
+      tempfile:
+        state: directory
+        suffix: clone
+      register: clone_directory
 
-    - debug:
-        msg: '{{ git_private_key }}'
+    - name: Copy privatekey locally (really bad idea)
+      copy:
+        src: '{{ git_private_key }}'
+        dest: '{{ clone_directory.path }}/id_rsa'
+        mode: '0600'
 
-    - command: 'ls -l {{ git_private_key }}'
-      ignore_errors: true
-      delegate_to: localhost
+    - name: Verify if next_version branch already exist
+      shell: 'git ls-remote --heads git@github.com:{{ repository }}.git release_{{ tower_version_next }} | wc -l'
+      register: git_next_version_branch
+      environment:
+        GIT_SSH_COMMAND: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o IdentityFile={{ clone_directory.path }}/id_rsa'
 
-    - command: 'cat {{ git_private_key }}'
-      ignore_errors: true
-      delegate_to: localhost
+    - name: Clean temp direcotry
+      file:
+        path: '{{ clone_directory.path }}'
+        state: absent
