@@ -1,6 +1,5 @@
 ---
 - hosts: releasevm
-  become: true
   tasks:
     - ping:
     - command: id
@@ -9,5 +8,9 @@
         msg: '{{ git_private_key }}'
 
     - command: 'ls -l {{ git_private_key }}'
+      ignore_errors: true
+      delegate_to: localhost
+
+    - command: 'cat {{ git_private_key }}'
       ignore_errors: true
       delegate_to: localhost
