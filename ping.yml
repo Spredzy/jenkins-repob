@@ -1,5 +1,6 @@
 ---
 - hosts: releasevm
+  become: true
   tasks:
     - ping:
     - command: id
