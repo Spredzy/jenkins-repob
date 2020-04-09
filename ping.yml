@@ -1,0 +1,5 @@
+---
+- hosts: releasevm
+  tasks:
+    - ping:
+    - command: id
