@@ -5,11 +5,7 @@
     - command: id
     - debug:
         msg: '{{ git_private_key }}'
+    - command: 'ls -l /tmp'
       ignore_errors: true
-    - debug:
-        msg: '{{ my_key }}'
-      ignore_errors: true
-    - command: 'cat {{ my_key }}'
-      ignore_errors: true
-    - command: 'cat {{ git_private_key }}'
+    - command: 'ls -l {{ git_private_key }}'
       ignore_errors: true
