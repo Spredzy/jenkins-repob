@@ -1,11 +1,9 @@
 ---
 - hosts: all
   tasks:
-    - name: Verify we are in container
-      command: ls -la /.dockerenv
-
     - name: Detect python used
-      command: which python
+      debug:
+        msg: '{{ ansible_python_interpreter }}'
 
     - name: List rpm
       shell: rpm -qa | sort
