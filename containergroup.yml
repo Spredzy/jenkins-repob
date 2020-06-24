@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: List rpm
+      shell: rpm -qa | sort
+
+    - name: List pip
+      shell: pip freeze | sort
