@@ -1,6 +1,12 @@
 ---
 - hosts: all
   tasks:
+    - name: Verify we are in container
+      command: ls -la /.dockerenv
+
+    - name: Detect python used
+      command: which python
+
     - name: List rpm
       shell: rpm -qa | sort
 
