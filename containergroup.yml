@@ -1,9 +1,10 @@
 ---
 - hosts: all
+  gather_facts: true
   tasks:
     - name: Detect python used
       debug:
-        msg: '{{ ansible_python_interpreter }}'
+        msg: '{{ ansible_facts }}'
 
     - name: List rpm
       shell: rpm -qa | sort
