@@ -1,15 +1,33 @@
+def i18n_files = false
+
 pipeline {
 
-    agent none
+    agent { label 'buildvm' }
 
     stages {
-        stage('Scenario') {
+        stage('Does it contain pofile') {
             steps {
                 script {
-                    echo 'hello world'
-                    /* jobs = load('build-scenarios.groovy') */
-                    /* parallel jobs */
+                    i18n_files = sh(
+                        script: 'git diff-tree --no-commit-id --name-only -r HEAD | grep -E "*.po"',
+                        returnStatus: true
+                    ) == 0
+
+                    echo "Let see: ${i18n_files}"
                 }
+            }
+        }
+
+        stage('Actually do something') {
+
+            when {
+              expression {
+                return i18n_files
+              }
+            }
+
+            steps {
+              echo "Doing Something"
             }
         }
     }
