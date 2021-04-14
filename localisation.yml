@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Display the survey content
+      debug:
+        msg: |
+          Solution: '{{ redhat_solution }}'
+          Book: '{{ redhat_book_name }}'
+          Backup: '{{ redhat_backup }}'
+          Version: '{{ redhat_version }}'
