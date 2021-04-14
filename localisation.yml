@@ -4,7 +4,7 @@
   tasks:
     - name: Display the survey content
       debug:
-        msg: |
+        msg: >
           Solution: '{{ redhat_solution }}'
           Book: '{{ redhat_book_name }}'
           Backup: '{{ redhat_backup }}'
